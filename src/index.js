@@ -3,5 +3,5 @@ const config = require('./config')
 const helper = require('./helpers')
 
 const bot = new TelegramBot(config.TOKEN, {
-    polling: true
+    polling: true // Правильное взаимодействие с сервером 
 })
