@@ -1,0 +1,19 @@
+{
+  "name": "telegram-bot-movies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Denchik797/telegram-bot-movies.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Denchik797/telegram-bot-movies/issues"
+  },
+  "homepage": "https://github.com/Denchik797/telegram-bot-movies#readme"
+}
