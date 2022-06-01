@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Denchik797/telegram-bot-movies/issues"
   },
-  "homepage": "https://github.com/Denchik797/telegram-bot-movies#readme"
+  "homepage": "https://github.com/Denchik797/telegram-bot-movies#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.57.0"
+  }
 }
