@@ -1,8 +1,8 @@
 module.exports = {
     home: {
-        films: '',
-        favourite: '',
-        cinemas: ''
+        films: 'Сейчас в кино',
+        favourite: 'Избранное ',
+        cinemas: 'Кинотеатры'
     },
     film: {
 
