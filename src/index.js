@@ -9,5 +9,5 @@ const bot = new TelegramBot(config.TOKEN, {
 })
 
 bot.on('message', msg => {
-    console.log('Working', msg.from.id, msg.from.first_name, msg.from.last_name, msg.from.username, msg.from.phone_number, msg.from.type)
+    console.log('Working', msg.from.id, msg.from.first_name, msg.from.last_name, msg.from.username, msg.from.phone_number, msg.from.type, msg.from.language_code)
 })
