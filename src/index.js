@@ -2,6 +2,7 @@ const TelegramBot = require('node-telegram-bot-api')
 const config = require('./config')
 const helper = require('./helpers')
 const kb = require('./keyboard-buttons')
+const keyboard = require('./keyboard')
 
 helper.logStart()
 
