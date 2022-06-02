@@ -14,5 +14,5 @@ bot.on('message', msg => {
 
 // start bot
 bot.onText(/\/start/, msg => {
-    
+    const text = 'Здравствуйте, ${msg.from.first_name, msg.from.last_name}'
 })
