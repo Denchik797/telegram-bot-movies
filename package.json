@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js" 
+    "dev": "nodemon ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "homepage": "https://github.com/Denchik797/telegram-bot-movies#readme",
   "dependencies": {
     "node-telegram-bot-api": "^0.57.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
