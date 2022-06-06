@@ -19,7 +19,9 @@ bot.on('message', msg => {
         case kb.home.favourite:
             break
         case kb.home.films:
-
+            bot.sendMessage(chatId, `Выберите жанр`, {
+                
+            })
             break
         case kb.home.cinemas:
             break
