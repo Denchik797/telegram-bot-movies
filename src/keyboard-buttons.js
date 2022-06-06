@@ -7,7 +7,9 @@ module.exports = {
     film: {
         random: 'Случайный жанр',
         action: 'Боевик',
-        comedy: 'Комедия'
+        comedy: 'Комедия',
+        Drama: 'Драма',
+        Horror: 'Ужасы'
     },
     back: 'Назад' 
 }
