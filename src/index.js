@@ -20,7 +20,7 @@ bot.on('message', msg => {
             break
         case kb.home.films:
             bot.sendMessage(chatId, `Выберите жанр`, {
-                
+                reply_markup: {keyboard: keyboard.films}
             })
             break
         case kb.home.cinemas:
