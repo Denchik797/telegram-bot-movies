@@ -27,7 +27,7 @@ bot.on('message', msg => {
             break
         case kb.back:
             bot.sendMessage(chatId, `Что хотите посмотреть?`, {
-                
+                reply_markup: {keyboard: keyboard.home}
             })
     }
 })
