@@ -10,8 +10,6 @@ module.exports = {
         comedy: 'Комедия',
         Drama: 'Драма',
         Horror: 'Ужасы', 
-        Fantasy: 'Фэнтези',
-        Melodrama: 'Мелодрама',
         detective: 'Детектив'
     },
     back: 'Назад'
