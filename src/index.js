@@ -13,10 +13,13 @@ const bot = new TelegramBot(config.TOKEN, {
 bot.on('message', msg => {
     console.log('Working', msg.from.first_name, msg.from.last_name, msg.from.username, msg.from.language_code) // Вывод данных о пользователе, который ведёт общение с ботом 
 
+    const chatId = helper.getChatId(msg)
+
     switch (msg.text) {
         case kb.home.favourite:
             break
         case kb.home.films:
+
             break
         case kb.home.cinemas:
             break
