@@ -16,7 +16,7 @@ bot.on('message', msg => {
 
 // start bot
 bot.onText(/\/start/, msg => {
-    const text = 'Здравствуйте, ${msg.from.first_name, msg.from.last_name}\nВыберите команду для начала работы: '
+    const text = `Здравствуйте, ${msg.from.first_name} ${msg.from.last_name}!\nЧто хотите посмотреть?`
     bot.sendMessage(helper.getChatId(msg), text, {
         reply_markup: {
             keyboard: keyboard.home
