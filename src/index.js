@@ -25,6 +25,10 @@ bot.on('message', msg => {
             break
         case kb.home.cinemas:
             break
+        case kb.back:
+            bot.sendMessage(chatId, `Что хотите посмотреть?`, {
+                
+            })
     }
 })
 
