@@ -10,6 +10,7 @@ module.exports = {
         [kb.film.action, kb.film.comedy],
         [kb.film.Drama, kb.film.Horror],
         [kb.film.Fantasy, kb.film.Melodrama],
-        [kb.film.detective, kb.back]
+        [kb.film.detective, kb.film.fantastic],
+        [kb.back]
     ]
 }
