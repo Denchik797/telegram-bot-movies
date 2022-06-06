@@ -8,5 +8,10 @@ module.exports = {
         random: 'Случайный жанр',
         action: 'Боевик',
         comedy: 'Комедия',
+        Drama: 'Драма',
+        Horror: 'Ужасы', 
+        Fantasy: 'Фэнтези',
+        Melodrama: 'Мелодрама',
+        detective: 'Детектив'
     },
 }
