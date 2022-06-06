@@ -14,4 +14,5 @@ module.exports = {
         Melodrama: 'Мелодрама',
         detective: 'Детектив'
     },
+    back: 'Назад'
 }
