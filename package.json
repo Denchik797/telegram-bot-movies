@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Denchik797/telegram-bot-movies#readme",
   "dependencies": {
+    "mongoose": "^6.3.6",
     "node-telegram-bot-api": "^0.57.0"
   },
   "devDependencies": {
