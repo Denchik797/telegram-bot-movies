@@ -7,6 +7,10 @@ const keyboard = require('./keyboard')
 
 helper.logStart()
 
+mongoose.connect(config.DB_URL, {
+    useMongoClient: true
+})
+
 const bot = new TelegramBot(config.TOKEN, {
     polling: true // Правильное взаимодействие с сервером 
 })
