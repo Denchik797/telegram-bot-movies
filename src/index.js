@@ -41,6 +41,12 @@ bot.on('message', msg => {
                 reply_markup: {keyboard: keyboard.films}
             })
             break
+        case kb.film.Horror:
+            break
+        case kb.film.Drama:
+            break
+        case kb.film.random:
+            break
         case kb.home.cinemas:
             break
         case kb.back:
