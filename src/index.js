@@ -65,3 +65,10 @@ bot.onText(/\/start/, msg => {
         }
     })
 }) 
+
+// find all films by type
+function sendFilmsByQuery(chatId, query) {
+    Film.find(query).then(films => {
+        console.log(films)
+    })
+}
