@@ -20,7 +20,7 @@ require('./models/film.model')
 
 const Film = mongoose.model('films')
 
-backendData.films.forEach(f => new Film(f).save())
+// backendData.films.forEach(f => new Film(f).save())
 
 // Конец логического слоя
 
