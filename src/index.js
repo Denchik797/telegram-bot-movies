@@ -15,6 +15,10 @@ mongoose.connect(config.DB_URL, {
     .then(() => console.log('MongoDB connected'))
     .catch((err) => console.log(err))
 
+const Film = mongoose.model('films')
+
+database.films.forEach(f => new Film(f).save())
+
 // Конец логического слоя
 
 const bot = new TelegramBot(config.TOKEN, {
