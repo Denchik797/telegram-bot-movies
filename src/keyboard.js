@@ -6,9 +6,8 @@ module.exports = {
         [kb.home.favourite]
     ],
     films: [
-        [kb.film.random, kb.film.fantastic],
-        [kb.film.action, kb.film.Fantasy, kb.film.comedy],
-        [kb.film.Drama, kb.film.Horror],
-        [kb.film.detective, kb.back]
+        [kb.film.random]
+        [kb.film.Drama, kb.film.fantastic, kb.film.Horror],
+        [kb.back]
     ]
 }
