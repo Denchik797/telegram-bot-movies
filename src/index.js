@@ -15,6 +15,8 @@ mongoose.connect(config.DB_URL, {
     .then(() => console.log('MongoDB connected'))
     .catch((err) => console.log(err))
 
+// Конец логического слоя
+
 const bot = new TelegramBot(config.TOKEN, {
     polling: true // Правильное взаимодействие с сервером 
 })
