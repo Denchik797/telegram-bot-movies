@@ -75,6 +75,7 @@ function sendFilmsByQuery(chatId, query) {
         const html = films.map((f, i) => {
             return `<b>${i + 1}</b> ${f.name} - /f${f.uuid}`
         }).join('\n')
+        sendHtml(chatId, html, 'home')
         bot.sendMessage(chatId, html, {
             parse_mode: 'HTML',
             reply_markup: {
