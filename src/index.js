@@ -73,7 +73,7 @@ bot.onText(/\/start/, msg => {
 function sendFilmsByQuery(chatId, query) {
     Film.find(query).then(films => {
         const html = films.map((f, i) => {
-            return `<b>${i + 1}</b> ${f.name} - /f${f.uuid}`
+            return `<b>${i + 1}.</b> ${f.name} —  /f${f.uuid}`
         }).join('\n')
         sendHtml(chatId, html, 'films')
         })
