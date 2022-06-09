@@ -15,6 +15,9 @@ mongoose.connect(config.DB_URL, {
     .then(() => console.log('MongoDB connected'))
     .catch((err) => console.log(err))
 
+// require models
+require('./models/film.model')
+
 const Film = mongoose.model('films')
 
 database.films.forEach(f => new Film(f).save())
