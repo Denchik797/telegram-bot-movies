@@ -9,7 +9,7 @@ const backendData = require('../database.json')
 helper.logStart()
 
 mongoose.connect(config.DB_URL, {
-    useMongoClient: true
+    // useMongoClient: true
 })
 
     .then(() => console.log('MongoDB connected'))
