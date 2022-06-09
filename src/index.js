@@ -61,10 +61,10 @@ bot.on('message', msg => {
 
 // start bot
 bot.onText(/\/start/, msg => {
-    const text = `Здравствуйте, ${msg.from.first_name} ${msg.from.last_name}!\nЧто хотите посмотреть?`
+    const text = `Здравствуйте, ${msg.from.first_name} ${msg.from.last_name}!\nЧто хотите посмотреть?` // Приветствие
     bot.sendMessage(helper.getChatId(msg), text, {
         reply_markup: {
-            keyboard: keyboard.home
+            keyboard: keyboard.home // Домашняя клавиатура
         }
     })
 }) 
