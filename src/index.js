@@ -42,10 +42,13 @@ bot.on('message', msg => {
             })
             break
         case kb.film.Horror:
+            sendFilmsByQuery(chatId, {type: 'Horror'})
             break
         case kb.film.Drama:
+            sendFilmsByQuery(chatId, {type: 'Drama'})
             break
         case kb.film.random:
+            sendFilmsByQuery(chatId, {})
             break
         case kb.home.cinemas:
             break
