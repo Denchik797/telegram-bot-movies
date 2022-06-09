@@ -7,12 +7,8 @@ module.exports = {
     film: {
         random: 'Случайный жанр',
         fantastic: 'Фантастика',
-        action: 'Боевик',
-        Fantasy: 'Фэнтези',
-        comedy: 'Комедия',
         Drama: 'Драма',
-        Horror: 'Ужасы',
-        detective: 'Детектив'
+        Horror: 'Ужасы'
     },
     back: 'Назад' 
 }
