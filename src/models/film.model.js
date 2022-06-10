@@ -29,6 +29,9 @@ const FilmSchema = new Schema({
     country: {
         type: String
     },
+    description: {
+        type: String
+    },
     link: {
         type: String
     },
