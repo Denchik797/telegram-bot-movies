@@ -21,6 +21,7 @@ require('./models/film.model') // модель фильмов
 require('./models/cinema.model') // модель кинотеатров 
 
 const Film = mongoose.model('films') // коллекция фильмов
+const Cinema = mongoose.model('cinemas') // коллекция кинотеатров
 
 // сохранение коллекции в бд
 // backendData.films.forEach(f => new Film(f).save()) 
