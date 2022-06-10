@@ -5,6 +5,7 @@ const helper = require('./helpers') // функции
 const kb = require('./keyboard-buttons') // кнопки 
 const keyboard = require('./keyboard') // логика
 const backendData = require('../database.json') // бд
+const { film } = require('./keyboard-buttons')
 
 helper.logStart()
 
@@ -73,7 +74,15 @@ bot.onText(/\/start/, msg => {
 // find film by id
 bot.onText(/\/f(.+)/, (msg, [source, match]) => {
     const filmUuid = helper.getItemUuid(source)
-    console.log(filmUuid) // вывод в консоль id фильма 
+    // console.log(filmUuid) вывод в консоль id фильма 
+    Film.findOne({uuid: filmUuid}).then(film => {
+        // console.log(film) вывод в консоль данных о фильме
+        bot.sendPhoto(msg.chat.id, film.picture, {
+        caption: `Название: ${film.name}\nГод: ${film.year}\nСтрана: ${film.country}\nРейтинг: ${film.rate}\nКоличество проголосовавших: ${film.ratingVoteCount}\nДлинна: ${film.length}\nОписание: ${film.description}`,
+        reply_markup: {
+            
+        }
+    })
 })
 
 // find all films by type
