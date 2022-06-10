@@ -22,3 +22,5 @@ const CinemaSchema = new Schema({
         default: []
     }
 })
+
+mongoose.model('cinemas', CinemaSchema)
