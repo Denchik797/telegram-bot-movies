@@ -74,6 +74,7 @@ bot.onText(/\/start/, msg => {
 // find film by id
 bot.onText(/\/f(.+)/, (msg, [source, match]) => {
     const filmUuid = helper.getItemUuid(source)
+    const chatId = helper.getChatId(msg)
     // console.log(filmUuid) вывод в консоль id фильма 
     Film.findOne({uuid: filmUuid}).then(film => {
         // console.log(film) вывод в консоль данных о фильме
