@@ -73,7 +73,7 @@ bot.onText(/\/start/, msg => {
 // find film by id
 bot.onText(/\/f(.+)/, (msg, [source, match]) => {
     const filmUuid = helper.getItemUuid(source)
-    console.log(filmUuid) 
+    console.log(filmUuid) // вывод в консоль id фильма 
 })
 
 // find all films by type
