@@ -77,11 +77,11 @@ bot.onText(/\/f(.+)/, (msg, [source, match]) => {
     const chatId = helper.getChatId(msg)
     // console.log(filmUuid) вывод в консоль id фильма 
     Film.findOne({uuid: filmUuid}).then(film => {
+        const caption = `Название: ${film.name}\nГод: ${film.year}\nСтрана: ${film.country}\nРейтинг: ${film.rate}\nКоличество проголосовавших: ${film.ratingVoteCount}\nДлинна: ${film.length}\nОписание: ${film.description}`
         // console.log(film) вывод в консоль данных о фильме
         bot.sendPhoto(msg.chat.id, film.picture, {
-        reply_markup: {
-            
-        }
+            caption: caption
+        })
     })
 })
 
