@@ -80,7 +80,28 @@ bot.onText(/\/f(.+)/, (msg, [source, match]) => {
         const caption = `Название: ${film.name}\nГод: ${film.year}\nСтрана: ${film.country}\nРейтинг: ${film.rate}\nКоличество проголосовавших: ${film.ratingVoteCount}\nДлинна: ${film.length}`
         // console.log(film) вывод в консоль данных о фильме
         bot.sendPhoto(msg.chat.id, film.picture, {
-            caption: caption
+            caption: caption,
+            reply_markup: {
+                inline_keyboard: 
+                [
+                    {
+                        text: "Добавить в избранное",
+                        callback_data: film.uuid
+                    },
+                    {
+                        text: " Показать кинотеатры",
+                        callback_data: film.uuid
+                    }
+                ]
+                [
+                    [
+                        {
+                            text: `Кинопоиск: ${film.name}`,
+                            url: film.link
+                        }
+                    ]
+                ]
+            }
         })
     })
 })
