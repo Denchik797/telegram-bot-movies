@@ -84,16 +84,16 @@ bot.onText(/\/f(.+)/, (msg, [source, match]) => {
             reply_markup: {
                 inline_keyboard: 
                 [
-                    {
-                        text: "Добавить в избранное",
-                        callback_data: film.uuid
-                    },
-                    {
-                        text: " Показать кинотеатры",
-                        callback_data: film.uuid
-                    }
-                ]
-                [
+                    [
+                        {
+                            text: "Добавить в избранное",
+                            callback_data: film.uuid
+                        },
+                        {
+                            text: " Показать кинотеатры",
+                            callback_data: film.uuid
+                        }
+                    ],
                     [
                         {
                             text: `Кинопоиск: ${film.name}`,
