@@ -1,26 +1,27 @@
-const TelegramBot = require('node-telegram-bot-api')
-const mongoose = require('mongoose')
-const config = require('./config')
-const helper = require('./helpers')
-const kb = require('./keyboard-buttons')
-const keyboard = require('./keyboard')
-const backendData = require('../database.json')
+const TelegramBot = require('node-telegram-bot-api') // модуль для телеграма по созданию ботов
+const mongoose = require('mongoose') // модуль для бд
+const config = require('./config') // токен
+const helper = require('./helpers') // функции
+const kb = require('./keyboard-buttons') // кнопки 
+const keyboard = require('./keyboard') // логика
+const backendData = require('../database.json') // бд
 
 helper.logStart()
 
-mongoose.connect(config.DB_URL, {
+mongoose.connect(config.DB_URL, { // подключение к бд
     // useMongoClient: true
 })
 
-    .then(() => console.log('MongoDB connected'))
-    .catch((err) => console.log(err))
+    .then(() => console.log('MongoDB connected')) // сообщение о том, что подключение прошло успешно 
+    .catch((err) => console.log(err)) // вывод ошибки 
 
 // require models
-require('./models/film.model')
+require('./models/film.model') // модель фильмов
 
-const Film = mongoose.model('films')
+const Film = mongoose.model('films') // коллекция фильмов
 
-// backendData.films.forEach(f => new Film(f).save())
+// сохранение коллекции в бд
+// backendData.films.forEach(f => new Film(f).save()) 
 
 // Конец логического слоя
 
