@@ -78,7 +78,6 @@ bot.onText(/\/f(.+)/, (msg, [source, match]) => {
     Film.findOne({uuid: filmUuid}).then(film => {
         // console.log(film) вывод в консоль данных о фильме
         bot.sendPhoto(msg.chat.id, film.picture, {
-        caption: `Название: ${film.name}\nГод: ${film.year}\nСтрана: ${film.country}\nРейтинг: ${film.rate}\nКоличество проголосовавших: ${film.ratingVoteCount}\nДлинна: ${film.length}\nОписание: ${film.description}`,
         reply_markup: {
             
         }
