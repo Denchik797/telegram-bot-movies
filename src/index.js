@@ -25,7 +25,7 @@ const Cinema = mongoose.model('cinemas') // коллекция кинотеат�
 
 // сохранение коллекции в бд
 // backendData.films.forEach(f => new Film(f).save()) 
-backendData.cinemas.forEach(c => new Cinema(c).save())
+// backendData.cinemas.forEach(c => new Cinema(c).save())
 
 // Конец логического слоя
 
