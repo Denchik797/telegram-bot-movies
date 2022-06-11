@@ -96,6 +96,23 @@ bot.on('message', msg => {
     }
 })
 
+// handler inline keyboard
+bot.on('callback_query', query => {
+    const userId = query.from.id
+    let data
+    try {
+        data = JSON.parse(query.data)
+    } catch (e) {
+        throw new Error('Data is not a object')
+    }
+    const { type } = data
+    if (type === ACTION_TYPE.CINEMA_LOCATION) {
+    } else if (type === ACTION_TYPE.FILM_TOGGLE_FAV) {
+    } else if (type === ACTION_TYPE.CINEMA_FILMS) {
+    } else if (type === ACTION_TYPE.FILM_CINEMAS) {
+    }
+})
+
 // start bot
 bot.onText(/\/start/, msg => {
     const text = `Здравствуйте, ${msg.from.first_name} ${msg.from.last_name}!\nЧто хотите посмотреть?` // Приветствие
