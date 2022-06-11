@@ -151,3 +151,8 @@ function sendHtml(chatId, html, keyboardName = null) {
     }
     bot.sendMessage(chatId, html, options)
 }
+
+// find cinemas with cords
+function sendCinemasInCords(chatId, location) {
+    
+}
