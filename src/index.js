@@ -126,7 +126,9 @@ bot.onText(/\/f(.+)/, (msg, [source, match]) => {
                         },
                         {
                             text: " Показать кинотеатры",
-                            callback_data: film.uuid
+                            callback_data: JSON.stringify ({
+                                
+                            })
                         }
                     ],
                     [
