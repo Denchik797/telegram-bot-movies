@@ -1,4 +1,5 @@
 const TelegramBot = require('node-telegram-bot-api') // модуль для телеграма по созданию ботов
+const telegraf = require('telegraf')
 const mongoose = require('mongoose') // модуль для бд
 const config = require('./config') // токен
 const helper = require('./helpers') // функции
@@ -154,7 +155,7 @@ bot.onText(/\/f(.+)/, (msg, [source, match]) => {
                                 callback_data: JSON.stringify ({
                                     type: ACTION_TYPE.FILM_TOGGLE_FAV,
                                     filmUuid: film.uuid,
-                                    isFavourite: isFavourite
+                                    isFav: isFavourite
                                 })
                             },
                             {
@@ -222,7 +223,7 @@ function sendFilmsByQuery(chatId, query) {
             return `<b>${i + 1}.</b> ${f.name} —  /f${f.uuid}`
         }).join('\n')
         sendHtml(chatId, html, 'films')
-        })
+    })
 }
 
 // helper. send bot html
@@ -253,12 +254,12 @@ function sendCinemasInCords(chatId, location) {
 }
 
 // add or remove from favourite films
-function toggleFavouriteFilm(userId, queryId, {filmUuid, isFavourite}) {
+function toggleFavouriteFilm(userId, queryId, {filmUuid, isFav}) {
     let userPromise
     User.findOne({telegramId: userId})
     .then(user => {
             if (user) {
-                if (isFavourite) {
+                if (isFav) {
                     user.films = user.films.filter(fUuid => fUuid !== filmUuid)
                 } else {
                     user.films.push(filmUuid)
@@ -270,7 +271,7 @@ function toggleFavouriteFilm(userId, queryId, {filmUuid, isFavourite}) {
                     films: [filmUuid]
                 })
             }
-            const answerText = isFavourite ? `Удалено из избранного` : `Фильм добавлен в избранное`
+            const answerText = isFav ? `Удалено из избранного` : `Фильм добавлен в избранное`
             userPromise.save()
             .then(_ => {
                 bot.answerCallbackQuery ({
