@@ -21,6 +21,7 @@ mongoose.connect(config.DB_URL, { // подключение к бд
 // require models
 require('./models/film.model') // модель фильмов
 require('./models/cinema.model') // модель кинотеатров 
+require('./models/user.model') // модель пользователей
 
 const Film = mongoose.model('films') // коллекция фильмов
 const Cinema = mongoose.model('cinemas') // коллекция кинотеатров
