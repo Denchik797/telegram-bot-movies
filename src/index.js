@@ -25,6 +25,7 @@ require('./models/user.model') // модель пользователей
 
 const Film = mongoose.model('films') // коллекция фильмов
 const Cinema = mongoose.model('cinemas') // коллекция кинотеатров
+const User = mongoose.model('users') // модель пользователей
 
 // сохранение коллекции в бд
 // backendData.films.forEach(f => new Film(f).save()) 
