@@ -107,9 +107,13 @@ bot.on('callback_query', query => {
     }
     const { type } = data
     if (type === ACTION_TYPE.CINEMA_LOCATION) {
+        
     } else if (type === ACTION_TYPE.FILM_TOGGLE_FAV) {
+
     } else if (type === ACTION_TYPE.CINEMA_FILMS) {
+
     } else if (type === ACTION_TYPE.FILM_CINEMAS) {
+
     }
 })
 
