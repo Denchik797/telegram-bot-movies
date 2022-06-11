@@ -74,6 +74,10 @@ bot.on('message', msg => {
             bot.sendMessage(chatId, `Что хотите посмотреть?`, {
                 reply_markup: {keyboard: keyboard.home}
             })
+            break
+    }
+    if (msg.location){
+        console.log(msg.location)
     }
 })
 
