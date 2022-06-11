@@ -122,12 +122,16 @@ bot.onText(/\/f(.+)/, (msg, [source, match]) => {
                     [
                         {
                             text: "Добавить в избранное",
-                            callback_data: film.uuid
+                            callback_data: JSON.stringify ({
+                                type: ACTION_TYPE.FILM_TOGGLE_FAV,
+                                filmUuid: film.uuid
+                            })
                         },
                         {
                             text: " Показать кинотеатры",
                             callback_data: JSON.stringify ({
-                                
+                                type: ACTION_TYPE.FILM_CINEMAS,
+                                cinemaUuids: film.cinemas
                             })
                         }
                     ],
@@ -157,13 +161,20 @@ bot.onText(/\/c(.+)/, (msg, [source, match]) => {
                         },
                     {
                         text: `Показать на карте`,
-                        callback_data: JSON.stringify(cinema.uuid)
+                        callback_data: JSON.stringify ({
+                            type: ACTION_TYPE.CINEMA_LOCATION,
+                            lat: cinema.location.latitude,
+                            lon: cinema.location.longitude,
+                        })
                     }
                 ],
                 [
                     {
                         text: `Показать фильмы`,
-                        callback_data: JSON.stringify(cinema.uuid)
+                        callback_data: JSON.stringify ({
+                            type: ACTION_TYPE.CINEMA_FILMS,
+                            filmUuids: cinema.films
+                        })
                     }
                 ]
             ]
