@@ -129,50 +129,50 @@ bot.onText(/\/start/, msg => {
 
 // find film by id
 bot.onText(/\/f(.+)/, (msg, [source, match]) => {
-    const filmUuid = helper.getItemUuid(source)
-    const chatId = helper.getChatId(msg)
-    Promise.all([Film.findOne({uuid: filmUuid}), User.findOne({telegramId: msg.from.id})])
-    .then(([film, user]) => {
-        let isFavourite = false
-        if (user) {
-            isFavourite = user.films.indexOf(film.uuid) !== -1
-        }
-        const favouriteText = isFavourite ? 'Удалить из избранного' : 'Добавить в избранное'
-    })
-    // console.log(filmUuid) вывод в консоль id фильма 
-    Film.findOne({uuid: filmUuid}).then(film => {
-        const caption = `Название: ${film.name}\nГод: ${film.year}\nСтрана: ${film.country}\nРейтинг: ${film.rate}\nКоличество проголосовавших: ${film.ratingVoteCount}\nДлинна: ${film.length}`
-        // console.log(film) вывод в консоль данных о фильме
-        bot.sendPhoto(msg.chat.id, film.picture, {
-            caption: caption,
-            reply_markup: {
-                inline_keyboard: 
-                [
-                    [
-                        {
-                            text: favouriteText,
-                            callback_data: JSON.stringify ({
-                                type: ACTION_TYPE.FILM_TOGGLE_FAV,
-                                filmUuid: film.uuid,
-                                isFavourite: isFavourite
-                            })
-                        },
-                        {
-                            text: " Показать кинотеатры",
-                            callback_data: JSON.stringify ({
-                                type: ACTION_TYPE.FILM_CINEMAS,
-                                cinemaUuids: film.cinemas
-                            })
-                        }
-                    ],
-                    [
-                        {
-                            text: `Кинопоиск: ${film.name}`,
-                            url: film.link
-                        }
-                    ]
-                ]
+        const filmUuid = helper.getItemUuid(source)
+        const chatId = helper.getChatId(msg)
+        Promise.all([Film.findOne({uuid: filmUuid}), User.findOne({telegramId: msg.from.id})])
+        .then(([film, user]) => {
+            let isFavourite = false
+            if (user) {
+                isFavourite = user.films.indexOf(film.uuid) !== -1
             }
+            const favouriteText = isFavourite ? 'Удалить из избранного' : 'Добавить в избранное'
+        // console.log(filmUuid) вывод в консоль id фильма 
+        Film.findOne({uuid: filmUuid}).then(film => {
+            const caption = `Название: ${film.name}\nГод: ${film.year}\nСтрана: ${film.country}\nРейтинг: ${film.rate}\nКоличество проголосовавших: ${film.ratingVoteCount}\nДлинна: ${film.length}`
+            // console.log(film) вывод в консоль данных о фильме
+            bot.sendPhoto(msg.chat.id, film.picture, {
+                caption: caption,
+                reply_markup: {
+                    inline_keyboard: 
+                    [
+                        [
+                            {
+                                text: favouriteText,
+                                callback_data: JSON.stringify ({
+                                    type: ACTION_TYPE.FILM_TOGGLE_FAV,
+                                    filmUuid: film.uuid,
+                                    isFavourite: isFavourite
+                                })
+                            },
+                            {
+                                text: " Показать кинотеатры",
+                                callback_data: JSON.stringify ({
+                                    type: ACTION_TYPE.FILM_CINEMAS,
+                                    cinemaUuids: film.cinemas
+                                })
+                            }
+                        ],
+                        [
+                            {
+                                text: `Кинопоиск: ${film.name}`,
+                                url: film.link
+                            }
+                        ]
+                    ]
+                }
+            })
         })
     })
 })
