@@ -154,7 +154,7 @@ bot.onText(/\/f(.+)/, (msg, [source, match]) => {
                             callback_data: JSON.stringify ({
                                 type: ACTION_TYPE.FILM_TOGGLE_FAV,
                                 filmUuid: film.uuid,
-                                isFav: isFavourite
+                                isFavourite: isFavourite
                             })
                         },
                         {
