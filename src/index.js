@@ -238,7 +238,6 @@ function sendHtml(chatId, html, keyboardName = null) {
 }
 
 // find cinemas with cords
-// find cinemas with cords
 function sendCinemasInCords(chatId, location) {
     Cinema.find({}).then(cinemas => {
         cinemas.forEach(c => {
@@ -250,4 +249,35 @@ function sendCinemasInCords(chatId, location) {
     }).join('\n')
     sendHtml(chatId, html, 'home')
     })
+}
+
+// add or remove from favourite films
+function toggleFavouriteFilm(userId, queryId, {filmUuid, isFav}) {
+    let userPromise
+    User.findOne({telegramId: userId})
+    .then(user => {
+            if (user) {
+                if (isFav) {
+                    user.films = user.films.filter(fUuid => fUuid !== filmUuid)
+                } else {
+                    user.films.push(filmUuid)
+                }
+                userPromise = user
+            } else {
+                userPromise = new User({
+                    telegramId: userId,
+                    films: [filmUuid]
+                })
+            }
+            const answerText = isFav ? `Удалено из избранного` : `Фильм добавлен в избранное`
+            userPromise.save()
+            .then(_ => {
+                bot.answerCallbackQuery({
+                    callback_query_id: queryId,
+                    text: answerText
+                })
+            })
+        .catch(err => console.log(err))
+    })
+    .catch(err => console.log(err))
 }
