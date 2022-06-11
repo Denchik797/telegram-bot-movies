@@ -273,10 +273,10 @@ function toggleFavouriteFilm(userId, queryId, {filmUuid, isFav}) {
             const answerText = isFav ? `Удалено из избранного` : `Фильм добавлен в избранное`
             userPromise.save()
             .then(_ => {
-                bot.answerCallbackQuery ({
-                    callback_query_id: queryId,
-                    text: answerText                
-                })
+                bot.answerCallbackQuery (
+                    callback_query_id =  queryId,
+                    text = answerText                
+                )
             })
         .catch(err => console.log(err))
     })
