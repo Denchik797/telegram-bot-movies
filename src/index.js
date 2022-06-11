@@ -78,6 +78,9 @@ bot.on('message', msg => {
     }
     if (msg.location){
         console.log(msg.location)
+        if (msg.location) {
+            sendCinemasInCords(chatId, msg.location)
+        }
     }
 })
 
