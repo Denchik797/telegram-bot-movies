@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Denchik797/telegram-bot-movies#readme",
   "dependencies": {
     "geolib": "^3.3.3",
+    "lodash": "^4.17.21",
     "mongoose": "^6.3.6",
     "node-telegram-bot-api": "^0.57.0"
   },

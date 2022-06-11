@@ -155,7 +155,6 @@ function sendHtml(chatId, html, keyboardName = null) {
 // find cinemas with cords
 // find cinemas with cords
 function sendCinemasInCords(chatId, location) {
-
     Cinema.find({}).then(cinemas => {
         cinemas.forEach(c => {
         c.distance = geolib.getDistance(location, c.location) / 1000
