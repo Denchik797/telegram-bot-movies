@@ -5,7 +5,9 @@ const helper = require('./helpers') // функции
 const kb = require('./keyboard-buttons') // кнопки 
 const keyboard = require('./keyboard') // логика
 const backendData = require('../database.json') // бд
-const { film } = require('./keyboard-buttons')
+const { film } = require('./keyboard-buttons') 
+const geolib = require('geolib') // модуль для работы с координатами
+const _ = require('lodash') 
 
 helper.logStart()
 
