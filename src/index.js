@@ -1,5 +1,4 @@
 const TelegramBot = require('node-telegram-bot-api') // модуль для телеграма по созданию ботов
-const telegraf = require('telegraf')
 const mongoose = require('mongoose') // модуль для бд
 const config = require('./config') // токен
 const helper = require('./helpers') // функции
