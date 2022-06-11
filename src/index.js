@@ -153,6 +153,17 @@ function sendHtml(chatId, html, keyboardName = null) {
 }
 
 // find cinemas with cords
+// find cinemas with cords
 function sendCinemasInCords(chatId, location) {
-    
+
+    Cinema.find({}).then(cinemas => {
+        cinemas.forEach(c => {
+        c.distance = geolib.getDistance(location, c.location) / 1000
+    })
+    cinemas = _.sortBy(cinemas, 'distance')
+    const html = cinemas.map((c, i) => {
+        return `<b>${i + 1}</b> ${c.name}. <em>Расстояние</em> - <strong>${c.distance}</strong> км. /c${c.uuid}`
+    }).join('\n')
+    sendHtml(chatId, html, 'home')
+    })
 }
