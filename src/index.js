@@ -292,7 +292,8 @@ function showFavouriteFilms(chatId, telegramId) {
                 let html
             if (films.length) {
                 html = films.map(f => {
-                    return `${f.name} - <b>${f.rate}</b> (/f${f.uuid})`
+                    return `${f.name} (/f${f.uuid})`
+                    // return `${f.name} - <b>${f.rate}</b> (/f${f.uuid})`
                 }).join('\n')
                 html = `<b>Ваши фильмы:</b>\n${html}`
             } else {
