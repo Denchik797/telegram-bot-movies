@@ -9,6 +9,13 @@ const { film } = require('./keyboard-buttons')
 const geolib = require('geolib') // модуль для работы с координатами
 const _ = require('lodash') 
 
+const ACTION_TYPE = {
+    CINEMA_FILMS: 'cfs',
+    FILM_CINEMAS: 'fcs',
+    CINEMA_LOCATION: 'cl',
+    FILM_TOGGLE_FAV: 'ftf'
+}
+
 helper.logStart()
 
 mongoose.connect(config.DB_URL, { // подключение к бд
