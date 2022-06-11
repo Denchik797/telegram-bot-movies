@@ -253,12 +253,12 @@ function sendCinemasInCords(chatId, location) {
 }
 
 // add or remove from favourite films
-function toggleFavouriteFilm(userId, queryId, {filmUuid, isFav}) {
+function toggleFavouriteFilm(userId, queryId, {filmUuid, isFavourite}) {
     let userPromise
     User.findOne({telegramId: userId})
     .then(user => {
             if (user) {
-                if (isFav) {
+                if (isFavourite) {
                     user.films = user.films.filter(fUuid => fUuid !== filmUuid)
                 } else {
                     user.films.push(filmUuid)
@@ -270,12 +270,12 @@ function toggleFavouriteFilm(userId, queryId, {filmUuid, isFav}) {
                     films: [filmUuid]
                 })
             }
-            const answerText = isFav ? `Удалено из избранного` : `Фильм добавлен в избранное`
+            const answerText = isFavourite ? `Удалено из избранного` : `Фильм добавлен в избранное`
             userPromise.save()
             .then(_ => {
                 bot.answerCallbackQuery ({
                     callback_query_id: queryId,
-                    text: answerText
+                    text: answerText                
                 })
             })
         .catch(err => console.log(err))
@@ -294,12 +294,12 @@ function showFavouriteFilms(chatId, telegramId) {
                         html = films.map(f => {
                             return `${f.name} - <b>${f.rate}</b> (/f${f.uuid})`
                         }).join('\n')
-                        // html = `<b>Ваши фильмы:</b>\n${html}`
+                        html = `<b>Ваши фильмы:</b>\n${html}`
                     } else {
                         html = 'Вы пока ничего не добавили'
                     }
                     sendHtml(chatId, html, 'home')
-                })
+                }) 
             } else {
                 sendHtml(chatId, 'Вы пока ничего не добавили', 'home')
             }
